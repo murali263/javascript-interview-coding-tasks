@@ -1,0 +1,110 @@
+<html>
+    <head></head>
+    <body>
+        <div style="display: flex;">array of objects and return array :<p id="task1"></p></div>
+        <br>
+        <br>
+        <div style="display: flex;">find duplicate of array :<p id="task2"></p></div>
+        <br>
+        <br>
+        <div style="display: flex;">removed duplicate of array :<p id="task3"></p></div>
+        <br>
+        <br>
+        <div style="display: flex;"> find largest number of array :<p id="task4"></p></div>
+        <br>
+        <br>
+        <div style="display: flex;">find the least number of  array :<p id="task5"></p></div>
+        <br>
+        <br>
+        <div style="display: flex;">find the missing number of  array :<p id="task6"></p></div>
+        <br>
+        <br>
+        <div style="display: flex;">find the missing number of  array :<p id="task7"></p></div>
+        <script>
+            // array of objects and return array
+let data = [
+    {
+        name:"murali",
+        score:["Harry","Ross","Bruce","Simmons"]
+    },
+    {
+        name:"chandu",
+        score:["Henry","Simmons","Michelle",'Ross']
+    }
+]
+let returnarray = data.reduce((arr,curr)=>{
+    return [...arr,...curr.score]
+},[])
+document.getElementById('task1').innerHTML =  returnarray;
+
+
+
+// find duplicate of array
+
+let findduplicates = returnarray.filter((index,item)=>{
+    return item !== returnarray.indexOf(index)
+})
+
+document.getElementById('task2').innerHTML = findduplicates;
+
+
+// remove duplicates of array
+let removedduplicates = returnarray.filter((index,item)=>{
+    return item === returnarray.indexOf(index)
+})
+document.getElementById('task3').innerHTML = removedduplicates;
+
+
+// find the largest of array
+var array = [3 , 6, 2, 56, 32, 5, 89, 32];
+var largest = 0;
+for (let i = 0; i < array.length; i++) {
+    if(array[i]>largest){
+        largest = array[i]
+    } 
+}
+document.getElementById('task4').innerHTML = largest;
+
+//  find the least number of array
+
+    
+let leastnumber = Math.min(...array)
+document.getElementById('task5').innerHTML = leastnumber
+
+//  find missing numbers 
+
+count = array[array.length -1]
+var missing = [];
+for (let i = 0; i <= count; i++) {
+    if(array.indexOf(i) == -1){
+        missing.push(i)
+    }
+    
+}
+
+document.getElementById('task6').innerHTML = missing;
+
+
+//  find frequency word print
+
+function  countword(p){
+    var count = {};
+    p.forEach((item) => {
+        if(count[item]){
+            count[item] ++
+        }else{
+            count[item] = 1
+        }
+    })
+    return count
+}
+
+let text = ''
+var printvalue = countword(returnarray)
+
+document.getElementById('task7').innerHTML = text
+
+
+        </script>
+    </body>
+</html>
